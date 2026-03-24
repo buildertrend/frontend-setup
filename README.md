@@ -1,6 +1,6 @@
 # Buildertrend Frontend Setup
 
-A Claude Code plugin that walks designers, PMs, and other non-engineering users through setting up the Buildertrend frontend (Clients.App) on their local machine. No coding knowledge needed — just follow the prompts.
+A Claude Code plugin that walks designers, PMs, and other non-engineering users through setting up the Buildertrend frontend on their local machine. No coding knowledge needed — just follow the prompts.
 
 ## How to use it
 
