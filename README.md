@@ -13,35 +13,23 @@ A Claude Code plugin that walks designers, PMs, and other non-engineering users 
 
 ### Setup
 
-1. Add the Buildertrend marketplace (one-time):
-
-    ```bash
-    claude plugin marketplace add buildertrend/frontend-setup
-    ```
-
-2. Install the plugin:
-
-    ```bash
-    claude plugin install frontend-setup
-    ```
-
-### Uninstall
-
-```bash
-claude plugin remove frontend-setup
-```
-
-## Usage
-
 1. Open a terminal
 2. Type `claude` and press Enter
-3. Run the setup command:
+3. Type each of these commands into the Claude prompt and press Enter after each one:
+
+    ```text
+    /plugin marketplace add buildertrend/frontend-setup
+    ```
+
+    ```text
+    /plugin install frontend-setup
+    ```
 
     ```text
     /frontend-setup
     ```
 
-Claude walks you through the entire process step by step:
+That last command kicks off the setup. Here's what it does:
 
 1. **Checks your computer** — detects your OS and installs any missing tools automatically
 2. **Helps you get credentials** — walks you through generating Git credentials in Azure DevOps
@@ -51,6 +39,14 @@ Claude walks you through the entire process step by step:
 6. **Starts the app** — launches the dev server and opens it in your browser
 
 When it's done, you'll have the Buildertrend frontend running at `https://local.buildertrend.net:443/`.
+
+### Uninstall
+
+Open Claude Code and paste:
+
+```text
+Remove the frontend-setup plugin
+```
 
 ## Features
 
@@ -82,7 +78,7 @@ If you run into issues at any point, reach out to **Michael Hanson**.
 ### Repo structure
 
 ```
-buildertrend-frontend-setup/
+frontend-setup/
 ├── .claude-plugin/
 │   ├── marketplace.json      # Marketplace manifest (for plugin install)
 │   └── plugin.json           # Plugin manifest (metadata, hooks)

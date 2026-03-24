@@ -1,5 +1,5 @@
 {
-	"name": "buildertrend-frontend-setup",
+	"name": "frontend-setup",
 	"owner": {
 		"name": "Buildertrend",
 		"email": "michael.hanson@buildertrend.com"
@@ -9,7 +9,7 @@
 	},
 	"plugins": [
 		{
-			"name": "buildertrend-frontend-setup",
+			"name": "frontend-setup",
 			"source": "./",
 			"description": "Help non-technical users set up the Buildertrend frontend on their local machine",
 			"version": "1.0.0"
