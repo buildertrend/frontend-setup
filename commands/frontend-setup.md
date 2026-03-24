@@ -53,9 +53,8 @@ Tell the user what you found and what you're going to install before proceeding.
 
 This is the one step that cannot be automated. Walk the user through it clearly:
 
-1. Ask the user to get the repository URL from **Michael Hanson's onboarding documentation**. They should have received this as part of their onboarding materials. If they don't have it, tell them to reach out to **Michael Hanson**.
-2. Tell them to open that URL in their browser.
-3. They may need to sign in with their Buildertrend Microsoft/Azure account.
+1. Tell the user to open the BTNet repository in Azure DevOps (ADO). If they don't have the link, tell them to reach out to **Michael Hanson**.
+2. They may need to sign in with their Buildertrend Microsoft/Azure account.
 4. Once on the page, they should click the **"Clone"** button in the upper right area of the page.
 5. In the dropdown that appears, under the HTTPS section, they should click **"Generate Git Credentials"**.
 6. This will show them a **username** and **password** — tell them to keep this page open or copy both values somewhere, they'll need them in a moment.
