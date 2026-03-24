@@ -16,19 +16,19 @@ A Claude Code plugin that walks designers, PMs, and other non-technical users th
 1. Add the Buildertrend marketplace (one-time):
 
     ```bash
-    claude plugin marketplace add buildertrend/buildertrend-frontend-setup
+    claude plugin marketplace add buildertrend/frontend-setup
     ```
 
 2. Install the plugin:
 
     ```bash
-    claude plugin install buildertrend-frontend-setup
+    claude plugin install frontend-setup
     ```
 
 ### Uninstall
 
 ```bash
-claude plugin remove buildertrend-frontend-setup
+claude plugin remove frontend-setup
 ```
 
 ## Usage
