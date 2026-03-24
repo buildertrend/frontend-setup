@@ -25,6 +25,12 @@ A Claude Code plugin that walks designers, PMs, and other non-engineering users 
     /plugin install frontend-setup
     ```
 
+    When prompted, select **"Install for you (user scope)"** and press Enter.
+
+    ```text
+    /reload-plugins
+    ```
+
     ```text
     /frontend-setup
     ```
