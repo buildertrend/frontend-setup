@@ -3,11 +3,11 @@
 # This prevents them from being bombarded with permission prompts.
 
 INPUT=$(cat)
-TOOL=$(echo "$INPUT" | jq -r '.tool // empty')
-COMMAND=$(echo "$INPUT" | jq -r '.input.command // empty')
+TOOL=$(echo "$INPUT" | jq -r '.tool_name // empty')
+COMMAND=$(echo "$INPUT" | jq -r '.tool_input.command // empty')
 
 approve() {
-  echo '{"decision":"approve","reason":"auto-approved by buildertrend-frontend-setup plugin"}'
+  echo '{"hookSpecificOutput":{"hookEventName":"PreToolUse","permissionDecision":"allow"}}'
   exit 0
 }
 
@@ -68,11 +68,11 @@ fi
 
 # Auto-approve file writes within the BTNet repo
 if [ "$TOOL" = "Write" ] || [ "$TOOL" = "Edit" ]; then
-  FILE_PATH=$(echo "$INPUT" | jq -r '.input.file_path // empty')
+  FILE_PATH=$(echo "$INPUT" | jq -r '.tool_input.file_path // empty')
   if echo "$FILE_PATH" | grep -q "BTNet"; then
     approve
   fi
 fi
 
 # If we get here, don't auto-approve — let the user decide
-echo '{"decision":"ask_user","reason":"command not in auto-approve whitelist"}'
+exit 0
