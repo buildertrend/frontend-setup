@@ -70,7 +70,7 @@ Ask the user to confirm when they have their credentials and clone URL ready bef
 **Important:** You cannot run `git clone` yourself because it will prompt for a password, which requires interactive input that Claude cannot handle. Instead, walk the user through running it themselves in a separate terminal window:
 
 1. Tell the user to open a new terminal window (on Mac: open the Terminal app; on Windows: open PowerShell or Command Prompt)
-2. Tell them to type `git clone ` followed by the clone URL they copied in Step 2, then press Enter.
+2. Tell them to type `git clone` followed by the clone URL they copied in Step 2, then press Enter. (Give them an example of how the command will look, like `git clone https://...`)
 3. Tell them the terminal will ask for a password — they should paste the password they copied in Step 2 and press Enter (the password won't be visible as they type).
 4. Warn them that cloning can take several minutes — it's a large codebase. Tell them to sit tight and let you know when the download finishes. Don't assume it failed just because it's taking a while.
 5. Ask the user to let you know once the clone is complete, then continue from here.
