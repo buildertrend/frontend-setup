@@ -9,7 +9,7 @@ A Claude Code plugin that walks designers, PMs, and other non-technical users th
 - [Claude Code](https://docs.anthropic.com/en/docs/claude-code) installed and working
 - **macOS users:** admin privileges on your account (needed to install tools and run the dev server)
 - A Buildertrend Microsoft/Azure account
-- The repository URL from Michael Hanson's onboarding documentation
+- The URL for BT's code repository
 
 ### Setup
 
