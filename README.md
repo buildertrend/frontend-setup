@@ -31,7 +31,7 @@ A Claude Code plugin that walks designers, PMs, and other non-engineering users 
     /reload-plugins
     ```
 
-    Switch to Claude's smartest model, which handles the setup more reliably:
+    Switch to Claude's smartest model:
 
     ```text
     /model opus
