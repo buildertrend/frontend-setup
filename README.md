@@ -32,6 +32,12 @@ A Claude Code plugin that walks designers, PMs, and other non-engineering users 
     ```
 
     ```text
+    /model opus
+    ```
+
+    This switches to Claude's smartest model, which handles the setup more reliably.
+
+    ```text
     /frontend-setup
     ```
 
