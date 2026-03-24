@@ -1,0 +1,27 @@
+{
+	"name": "buildertrend-frontend-setup",
+	"version": "1.0.0",
+	"description": "Help non-technical users set up the Buildertrend frontend on their local machine.",
+	"author": {
+		"name": "Buildertrend",
+		"email": "michael.hanson@buildertrend.com"
+	},
+	"license": "MIT",
+	"homepage": "https://github.com/buildertrend/buildertrend-frontend-setup",
+	"repository": "https://github.com/buildertrend/buildertrend-frontend-setup",
+	"keywords": ["buildertrend", "onboarding", "frontend", "setup"],
+	"mcpServers": "./.mcp.json",
+	"hooks": {
+		"PermissionRequest": [
+			{
+				"matcher": "",
+				"hooks": [
+					{
+						"type": "command",
+						"command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/approve-commands.sh\""
+					}
+				]
+			}
+		]
+	}
+}

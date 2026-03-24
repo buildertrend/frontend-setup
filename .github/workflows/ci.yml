@@ -1,0 +1,72 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint-markdown:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lint Markdown
+        run: npx markdownlint-cli2 '**/*.md' '#node_modules'
+
+  validate-plugin-structure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate JSON files
+        run: |
+          for f in .claude-plugin/plugin.json .claude-plugin/marketplace.json .mcp.json; do
+            echo "Checking $f..."
+            node -e "JSON.parse(require('fs').readFileSync('$f', 'utf8'))"
+          done
+
+      - name: Validate command frontmatter
+        run: |
+          errors=0
+          for cmd in commands/*.md; do
+            echo "Checking $cmd..."
+            if ! head -1 "$cmd" | grep -q '^---$'; then
+              echo "ERROR: $cmd missing YAML frontmatter"
+              errors=1
+              continue
+            fi
+            if ! grep -q '^description:' "$cmd"; then
+              echo "ERROR: $cmd missing 'description' field"
+              errors=1
+            fi
+          done
+          exit $errors
+
+      - name: Check referenced files exist
+        run: |
+          errors=0
+          for f in \
+            .claude-plugin/plugin.json \
+            .claude-plugin/marketplace.json \
+            .mcp.json \
+            commands/frontend-setup.md \
+            scripts/approve-commands.sh \
+            scripts/install-deps.sh \
+            CLAUDE.md; do
+            if [ ! -f "$f" ]; then
+              echo "ERROR: $f not found"
+              errors=1
+            fi
+          done
+          exit $errors
+
+      - name: Check hook scripts are executable
+        run: |
+          errors=0
+          for f in scripts/approve-commands.sh scripts/install-deps.sh; do
+            if [ -f "$f" ] && [ ! -x "$f" ]; then
+              echo "ERROR: $f is not executable"
+              errors=1
+            fi
+          done
+          exit $errors
