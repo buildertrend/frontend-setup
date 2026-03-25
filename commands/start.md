@@ -184,6 +184,30 @@ Once the dev server is running (whether you started it or they did manually), te
 
 Confirm with the user that they can see the Buildertrend UI in their browser.
 
+## Step 8 (optional): Connect Figma and Azure DevOps
+
+This step is optional — the frontend is already running. But connecting these tools lets Claude help the user work with designs in Figma and work items in Azure DevOps directly from the chat.
+
+Tell the user you're going to connect two tools they may use in their day-to-day work: **Figma** (for viewing designs) and **Azure DevOps** (for viewing work items and code). Explain that each one may open a browser window asking them to sign in.
+
+**Connect Azure DevOps:**
+
+1. Tell the user you're going to try connecting to Azure DevOps, and that a browser window may open for sign-in.
+2. Attempt a simple read-only call to the Azure DevOps MCP server (e.g., list repositories or get project info).
+3. If the user is prompted to sign in, tell them to use their **Buildertrend Microsoft/Azure account**.
+4. If it succeeds, let the user know Azure DevOps is connected.
+5. If it fails, tell them it's not required and they can try again later, or reach out to **Michael Hanson** for help.
+
+**Connect Figma:**
+
+1. Tell the user you're going to try connecting to Figma, and that a browser window may open for sign-in.
+2. Attempt a simple read-only call to the Figma MCP server (e.g., get the current user's info or list recent files).
+3. If the user is prompted to sign in, tell them to use their **Figma account** (the one associated with their Buildertrend team).
+4. If it succeeds, let the user know Figma is connected.
+5. If it fails, tell them it's not required and they can try again later, or reach out to **Michael Hanson** for help.
+
+If either tool connects without prompting for sign-in, that means the user is already authenticated — just let them know it's ready to use.
+
 ## Troubleshooting
 
 If something goes wrong, here are common issues:
