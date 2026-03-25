@@ -15,15 +15,38 @@ for f in .claude-plugin/plugin.json .claude-plugin/marketplace.json .mcp.json; d
   node -e "JSON.parse(require('fs').readFileSync('$f', 'utf8'))"
 done
 
-for cmd in commands/*.md; do
-  echo "Checking $cmd..."
-  if ! head -1 "$cmd" | grep -q '^---$'; then
-    echo "ERROR: $cmd missing YAML frontmatter"
+for md in commands/*.md; do
+  echo "Checking $md..."
+  if ! head -1 "$md" | grep -q '^---$'; then
+    echo "ERROR: $md missing YAML frontmatter"
     errors=1
     continue
   fi
-  if ! grep -q '^description:' "$cmd"; then
-    echo "ERROR: $cmd missing 'description' field"
+  if ! grep -q '^description:' "$md"; then
+    echo "ERROR: $md missing 'description' field"
+    errors=1
+  fi
+done
+
+for skill in skills/*/SKILL.md; do
+  echo "Checking $skill..."
+  if ! head -1 "$skill" | grep -q '^---$'; then
+    echo "ERROR: $skill missing YAML frontmatter"
+    errors=1
+    continue
+  fi
+  if ! grep -q '^name:' "$skill"; then
+    echo "ERROR: $skill missing 'name' field"
+    errors=1
+  fi
+  if ! grep -q '^description:' "$skill"; then
+    echo "ERROR: $skill missing 'description' field"
+    errors=1
+  fi
+  dir_name=$(basename "$(dirname "$skill")")
+  skill_name=$(grep '^name:' "$skill" | head -1 | sed 's/^name: *//')
+  if [ "$dir_name" != "$skill_name" ]; then
+    echo "ERROR: $skill name '$skill_name' does not match directory '$dir_name'"
     errors=1
   fi
 done
@@ -33,6 +56,7 @@ for f in \
   .claude-plugin/marketplace.json \
   .mcp.json \
   commands/start.md \
+  skills/branch-management/SKILL.md \
   scripts/approve-commands.sh \
   scripts/install-deps.sh \
   CLAUDE.md; do
