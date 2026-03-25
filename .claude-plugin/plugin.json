@@ -1,6 +1,6 @@
 {
 	"name": "frontend-setup",
-	"version": "1.1.0",
+	"version": "2.0.0",
 	"description": "Help non-technical users set up the Buildertrend frontend on their local machine.",
 	"author": {
 		"name": "Buildertrend",

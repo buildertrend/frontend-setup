@@ -1,5 +1,29 @@
 # Changelog
 
+## [2.0.0](https://github.com/buildertrend/product-toolkit/compare/v1.1.0...v2.0.0) (2026-03-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* Rename the setup command from /frontend-setup:frontend-setup to /frontend-setup:start
+* Rename marketplace to product-toolkit
+
+### Features
+
+* Rename the setup command from /frontend-setup:frontend-setup to /frontend-setup:start ([4c70807](https://github.com/buildertrend/product-toolkit/commit/4c70807d9746dc6c364cab23b774e6977a3ceb48))
+
+
+### Bug Fixes
+
+* Clarify that sudo may or may not prompt for a password ([dfc9b81](https://github.com/buildertrend/product-toolkit/commit/dfc9b8183b965bbf36b645d26507d0e59cef40cf))
+* Have the user run package auth themselves so the browser actually opens ([d200ded](https://github.com/buildertrend/product-toolkit/commit/d200ded18c5a2c007d977ea4e4174007959ebb90))
+* Stop blocking unrelated commands when the plugin is installed ([f768a6e](https://github.com/buildertrend/product-toolkit/commit/f768a6e0f3775fa2ffdb75ff496099e547d61772))
+
+
+### Miscellaneous Chores
+
+* Rename marketplace to product-toolkit ([450f41f](https://github.com/buildertrend/product-toolkit/commit/450f41ffa575d82b7c1c51a4677952a3e5c7b28c))
+
 ## [1.1.0](https://github.com/buildertrend/frontend-setup/compare/v1.0.0...v1.1.0) (2026-03-25)
 
 
