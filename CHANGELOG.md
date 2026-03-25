@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/buildertrend/frontend-setup/compare/v1.1.0...v1.1.1) (2026-03-25)
+
+
+### Bug Fixes
+
+* Exclude generated changelog from markdown linting ([9b84f99](https://github.com/buildertrend/frontend-setup/commit/9b84f997ff0566ee9816cd746f25ae1162b6929a))
+
 ## [1.1.0](https://github.com/buildertrend/frontend-setup/compare/v1.0.0...v1.1.0) (2026-03-25)
 
 
