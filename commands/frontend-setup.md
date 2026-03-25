@@ -127,7 +127,7 @@ If the entry is missing, you cannot run this command yourself because it require
 
 1. Tell them to open a new terminal window (or use an existing one)
 2. Tell them to type this command and press Enter: `sudo sh -c 'echo "127.0.0.1 local.buildertrend.net" >> /etc/hosts'`
-3. Tell them the terminal will ask for their Mac login password — they should type it and press Enter (the password won't be visible as they type)
+3. Tell them the terminal may ask for their Mac login password — they should type it and press Enter (the password won't be visible as they type)
 4. Ask them to let you know once it's done
 
 **On Windows:** This step must be done manually. Walk the user through it:
@@ -165,7 +165,7 @@ If a server is already running, tell the user it looks like the dev server is al
 sudo pnpm run start
 ```
 
-Tell the user they will be prompted for their Mac login password — they should type it and press Enter (the password won't be visible as they type).
+Tell the user they may be prompted for their Mac login password — they should type it and press Enter (the password won't be visible as they type).
 
 **On Windows:**
 
@@ -177,7 +177,7 @@ If you are unable to run the dev server (e.g., permission issues, the command ha
 
 1. Open a new terminal window
 2. Navigate to the Clients.App folder inside the BTNet repo (e.g., `cd path/to/BTNet/Clients.App` — give them the actual path based on where they cloned it)
-3. On Mac: run `sudo pnpm run start` and enter their Mac login password when prompted
+3. On Mac: run `sudo pnpm run start` and enter their Mac login password if prompted
 4. On Windows: run `pnpm run start`
 5. Wait for the terminal to show that the server is ready
 
