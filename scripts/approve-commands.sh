@@ -80,6 +80,8 @@ if echo "$COMMAND" | grep -qE '[;|&]'; then
     "id -Gn | grep -q admin")                              approve ;;
     "rm -rf node_modules && pnpm install")                  approve ;;
     "pnpm run setup-btfeedauth-crossplatform && pnpm install") approve ;;
+    *" | pbcopy"*) approve ;;
+    *" | clip"*) approve ;;
   esac
   exit 0
 fi

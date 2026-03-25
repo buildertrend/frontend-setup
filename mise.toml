@@ -206,6 +206,14 @@ expect_approve "rm node_modules && pnpm install" \
 expect_approve "setup-btfeedauth && pnpm install" \
   '{"tool_name":"Bash","tool_input":{"command":"pnpm run setup-btfeedauth-crossplatform && pnpm install"}}'
 
+# Bash — clipboard copy (pbcopy / clip)
+expect_approve "echo pipe to pbcopy" \
+  '{"tool_name":"Bash","tool_input":{"command":"echo sudo pnpm run start | pbcopy"}}'
+expect_approve "echo pipe to clip" \
+  '{"tool_name":"Bash","tool_input":{"command":"echo pnpm run start | clip"}}'
+expect_approve "printf pipe to pbcopy" \
+  '{"tool_name":"Bash","tool_input":{"command":"printf cd /Users/me/BTNet | pbcopy"}}'
+
 # Bash — env var prefix
 expect_approve "env var prefix + bash script" \
   '{"tool_name":"Bash","tool_input":{"command":"NONINTERACTIVE=1 bash /tmp/brew_install.sh"}}'
