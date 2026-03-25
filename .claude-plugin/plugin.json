@@ -1,6 +1,6 @@
 {
 	"name": "frontend-setup",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"description": "Help non-technical users set up the Buildertrend frontend on their local machine.",
 	"author": {
 		"name": "Buildertrend",
@@ -9,7 +9,12 @@
 	"license": "MIT",
 	"homepage": "https://github.com/buildertrend/frontend-setup",
 	"repository": "https://github.com/buildertrend/frontend-setup",
-	"keywords": ["buildertrend", "onboarding", "frontend", "setup"],
+	"keywords": [
+		"buildertrend",
+		"onboarding",
+		"frontend",
+		"setup"
+	],
 	"mcpServers": "./.mcp.json",
 	"hooks": {
 		"PermissionRequest": [
