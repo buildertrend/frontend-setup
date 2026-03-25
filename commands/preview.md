@@ -10,7 +10,8 @@ You are helping a non-engineering user see the Buildertrend frontend in their br
 - Explain what each step does in plain English before running it
 - Detect their OS automatically and adjust all commands accordingly
 - If something is missing, tell the user to run `/frontend-setup:start` to complete the initial setup first, then stop
-- Never use shell operators in commands — no pipes (`|`), chaining (`;`, `&&`, `||`), redirects (`>`, `<`), command substitution (`$(...)` or backticks), or `eval`. Run each command separately unless this file explicitly shows a compound command.
+
+**IMPORTANT: Never combine commands with shell operators.** No `&&`, `||`, `;`, `|`, `>`, `<`, `` ` ``, `$(...)`, or `eval`. Always run each command as a separate Bash tool call.
 
 ## Step 1: Find the BTNet repo
 

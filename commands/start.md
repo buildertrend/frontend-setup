@@ -14,7 +14,8 @@ You are helping a non-engineering user (probably a designer or PM) set up the BT
 - Check for each prerequisite before installing — don't reinstall things that already exist
 - If something fails, explain what went wrong simply and try the fallback approach
 - When something goes wrong and the user needs help, ask them to copy and paste the text from their terminal into the chat so you can see the error. Explain how to select and copy text from the terminal if needed.
-- Never use shell operators in commands — no pipes (`|`), chaining (`;`, `&&`, `||`), redirects (`>`, `<`), command substitution (`$(...)` or backticks), or `eval`. Run each command separately unless this file explicitly shows a compound command.
+
+**IMPORTANT: Never combine commands with shell operators.** No `&&`, `||`, `;`, `|`, `>`, `<`, `` ` ``, `$(...)`, or `eval`. Always run each command as a separate Bash tool call.
 
 ## Goal
 
@@ -115,7 +116,7 @@ Walk the user through running the command in their terminal:
 5. After signing in, the terminal will continue and install all the project's dependencies. This can take several minutes.
 6. Ask the user to let you know once the command finishes
 
-**If this fails (especially on Mac)**, tell the user to try the cross-platform alternative instead: have them run `pnpm run setup-btfeedauth-crossplatform && pnpm install` in the same terminal.
+**If this fails (especially on Mac)**, tell the user to try the cross-platform alternative instead: have them run `pnpm run setup-btfeedauth-crossplatform` first, then `pnpm install`, in the same terminal.
 
 **If both fail**, tell the user to reach out to **Michael Hanson** for help with package feed authentication before continuing.
 
