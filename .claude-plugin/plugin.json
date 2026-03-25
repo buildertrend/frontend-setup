@@ -19,7 +19,7 @@
 	"hooks": {
 		"PermissionRequest": [
 			{
-				"matcher": "",
+				"matcher": "Bash|Write|Edit|Read|Glob|Grep",
 				"hooks": [
 					{
 						"type": "command",

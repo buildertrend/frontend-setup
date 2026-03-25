@@ -35,60 +35,53 @@ EOF
   exit 0
 }
 
-deny() {
-  local msg="${1:-blocked by frontend-setup plugin}"
-  printf '{"hookSpecificOutput":{"hookEventName":"PermissionRequest","decision":{"behavior":"deny","message":"%s"}}}\n' "$msg"
-  exit 0
-}
-
-# --- Read-only tools: always approve ---
+# --- Read-only tools: approve within BTNet, passthrough otherwise ---
 case "$TOOL" in
-  Read|Glob|Grep)
-    approve
+  Read)
+    TARGET=$(parse_field "tool_input.file_path") || true
+    if [ -n "$TARGET" ] && echo "$TARGET" | grep -q "BTNet"; then approve; fi
+    exit 0
+    ;;
+  Glob|Grep)
+    TARGET=$(parse_field "tool_input.path") || true
+    if [ -n "$TARGET" ] && echo "$TARGET" | grep -q "BTNet"; then approve; fi
+    exit 0
     ;;
 esac
 
-# --- File writes: approve within BTNet repo ---
+# --- File writes: approve within BTNet, passthrough otherwise ---
 case "$TOOL" in
   Write|Edit)
     FILE_PATH=$(parse_field "tool_input.file_path") || true
     if [ -n "$FILE_PATH" ] && echo "$FILE_PATH" | grep -q "BTNet"; then
       approve
     fi
-    deny "File writes are only allowed inside the BTNet repository."
+    exit 0
     ;;
 esac
 
 # --- Bash commands ---
 if [ "$TOOL" != "Bash" ]; then
-  deny "Tool not allowed by frontend-setup plugin."
+  exit 0
 fi
 
 COMMAND=$(parse_field "tool_input.command") || exit 1
 [ -z "$COMMAND" ] && exit 1
 
-# --- Block dangerous patterns ---
-if echo "$COMMAND" | grep -qE '\$\(|`'; then
-  deny "Command substitution (\$() and backticks) is not allowed. Write out literal values instead."
-fi
-if echo "$COMMAND" | grep -qE '\beval\b'; then
-  deny "eval is not allowed. Run commands directly."
-fi
-if echo "$COMMAND" | grep -qE '[><]'; then
-  deny "Redirects are not allowed."
-fi
-if echo "$COMMAND" | grep -qE '\\n'; then
-  deny "Embedded newlines are not allowed."
-fi
+# --- Dangerous patterns: passthrough (let user decide) ---
+if echo "$COMMAND" | grep -qE '\$\(|`'; then exit 0; fi
+if echo "$COMMAND" | grep -qE '\beval\b'; then exit 0; fi
+if echo "$COMMAND" | grep -qE '[><]'; then exit 0; fi
+if echo "$COMMAND" | grep -qE '\\n'; then exit 0; fi
 
-# --- Compound commands: whitelist specific safe patterns, deny the rest ---
+# --- Compound commands: approve known-safe patterns, passthrough the rest ---
 if echo "$COMMAND" | grep -qE '[;|&]'; then
   case "$COMMAND" in
     "id -Gn | grep -q admin")                              approve ;;
     "rm -rf node_modules && pnpm install")                  approve ;;
     "pnpm run setup-btfeedauth-crossplatform && pnpm install") approve ;;
   esac
-  deny "Command chaining (pipes, ;, &&, ||) is not allowed. Run each command separately."
+  exit 0
 fi
 
 # --- Extract command name, stripping env var prefixes (e.g. NONINTERACTIVE=1) ---
@@ -110,7 +103,7 @@ case "$CMD_FIRST" in
     ;;
   node)
     if echo "$COMMAND" | grep -qE '(^|\s)(-e|--eval)(\s|$)'; then
-      deny "node -e/--eval is not allowed. Use node --version or similar."
+      exit 0
     fi
     ;;
   # Git operations
@@ -129,7 +122,7 @@ case "$CMD_FIRST" in
       pnpm|corepack|chown)
         ;;
       *)
-        deny "sudo is only allowed with pnpm, corepack, or chown."
+        exit 0
         ;;
     esac
     ;;
@@ -137,23 +130,18 @@ case "$CMD_FIRST" in
   curl|wget|lsof|netstat)
     ;;
   bash)
-    # Block bare "bash" and "bash -c" (inline code execution)
-    if [ "$CMD_LINE" = "bash" ]; then
-      deny "Running an interactive bash shell is not allowed."
-    fi
-    if echo "$CMD_LINE" | grep -qE '(^|\s)-c(\s|$)'; then
-      deny "bash -c is not allowed. Run commands directly."
-    fi
+    if [ "$CMD_LINE" = "bash" ]; then exit 0; fi
+    if echo "$CMD_LINE" | grep -qE '(^|\s)-c(\s|$)'; then exit 0; fi
     ;;
   rm)
     # Only approve rm for node_modules cleanup
     if echo "$COMMAND" | grep -qE '^rm -rf node_modules'; then
       approve
     fi
-    deny "rm is only allowed for node_modules cleanup."
+    exit 0
     ;;
   *)
-    deny "Command not in allowlist. Only standard setup commands are permitted."
+    exit 0
     ;;
 esac
 
