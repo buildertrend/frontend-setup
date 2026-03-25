@@ -83,25 +83,24 @@ cd BTNet
 
 ## Step 4: Authenticate to the private package feed and install dependencies
 
-The project uses private npm packages that require authentication. Run:
+The project uses private npm packages that require authentication. This step needs to open a browser window for sign-in, so the user must run it themselves — Claude cannot open browsers.
 
-```bash
-pnpm run setup-project
-```
+First, figure out the full path to the BTNet repo. Run `pwd` to see where you are, and check if a `BTNet` folder exists nearby (it was cloned in Step 3). Construct the full path to it.
 
-This will:
-1. Try to authenticate with the Buildertrend private package feed (a browser window may open — tell the user to sign in if prompted)
-2. Install all project dependencies
+Walk the user through running the command in their terminal:
 
-**If this fails (especially on Mac)**, try the cross-platform alternative:
+1. Tell them to open a terminal window (or use an existing one)
+2. Tell them to navigate to the BTNet folder by typing `cd <full path to BTNet>` — give them the exact command with the actual path filled in
+3. Tell them to type `pnpm run setup-project` and press Enter
+4. Tell them a browser window should open asking them to sign in — they should sign in with their Buildertrend Microsoft/Azure account
+5. After signing in, the terminal will continue and install all the project's dependencies. This can take several minutes.
+6. Ask the user to let you know once the command finishes
 
-```bash
-pnpm run setup-btfeedauth-crossplatform && pnpm install
-```
+**If this fails (especially on Mac)**, tell the user to try the cross-platform alternative instead: have them run `pnpm run setup-btfeedauth-crossplatform && pnpm install` in the same terminal.
 
 **If both fail**, tell the user to reach out to **Michael Hanson** for help with package feed authentication before continuing.
 
-After a successful install, confirm there are no errors in the output before moving on.
+After the user reports success, ask if they saw any errors in the output before moving on.
 
 ## Step 5: Configure the environment
 
