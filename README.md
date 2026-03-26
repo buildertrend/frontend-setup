@@ -6,10 +6,11 @@ Claude Code plugins for designers, PMs, and other non-engineering roles at Build
 
 ### Frontend Setup
 
-A single plugin with three skills:
+A single plugin with four skills:
 
 - **Start** (`/frontend-setup:start`) — Full setup flow: installs tools, gets credentials, downloads code, and starts the app.
-- **Preview** (`/frontend-setup:preview`) — Starts the dev server and opens the frontend in your browser. Use this after initial setup.
+- **Contribute** — Guides you through making changes end-to-end: setting up a safe copy, editing files, saving your work, and submitting it for review.
+- **Preview** (`/frontend-setup:preview`) — Starts the dev server and opens the frontend in your browser.
 - **Branch management** — Guides you onto a feature branch before making code changes. Keeps the main codebase safe so your edits can be reviewed separately.
 
 ## How to use it

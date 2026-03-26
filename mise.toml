@@ -81,6 +81,7 @@ for f in \
   skills/start/SKILL.md \
   skills/preview/SKILL.md \
   skills/branch-management/SKILL.md \
+  skills/contribute/SKILL.md \
   scripts/approve-commands.sh \
   CLAUDE.md; do
   if [ ! -f "$f" ]; then
