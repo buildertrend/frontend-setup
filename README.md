@@ -78,7 +78,7 @@ Help me uninstall the frontend-setup plugin.
 - **Auto-approval** — safe commands are approved automatically so you aren't interrupted by permission prompts
 - **Cross-platform** — works on Mac and Windows
 - **Error recovery** — if something fails, Claude tries to fix it before asking for help
-- **Figma integration** — Claude can read your Figma designs (sign in when prompted)
+- **Figma integration** — Claude can read your Figma designs
 - **Azure DevOps integration** — Claude can access repos, work items, and wiki
 - **Confluence integration** — Claude can access wiki pages and documentation
 
@@ -116,8 +116,7 @@ product-toolkit/
 │   └── branch-management/
 │       └── SKILL.md          # Guides users onto a feature branch
 ├── scripts/
-│   ├── approve-commands.sh   # PermissionRequest hook — auto-approves safe commands
-│   └── install-deps.sh       # OS detection and prerequisite checker
+│   └── approve-commands.sh   # PermissionRequest hook — auto-approves safe commands
 ├── CLAUDE.md                 # Behavior guidelines for Claude
 ├── CHANGELOG.md
 ├── mise.toml                 # Linting, validation, and hook tests
