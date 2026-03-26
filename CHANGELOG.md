@@ -1,5 +1,26 @@
 # Changelog
 
+## [3.0.0](https://github.com/buildertrend/product-toolkit/compare/v2.0.0...v3.0.0) (2026-03-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* **frontend-setup:** Convert commands to skills
+
+### Features
+
+* Add branch management skill to guide users onto feature branches before making changes ([63b7513](https://github.com/buildertrend/product-toolkit/commit/63b75138c6623f85a6fffb45c970c2ecafbec589))
+* Check for an existing copy of the project before downloading ([63a4f46](https://github.com/buildertrend/product-toolkit/commit/63a4f46c2e73e338183ba47505af541c30f779a6))
+* Copy commands to clipboard when user needs to run them in another terminal ([c7f2832](https://github.com/buildertrend/product-toolkit/commit/c7f28320ad1ac0e314b3329fe69611b3b8932baa))
+* **frontend-setup:** Connect Confluence during setup ([b1f43ed](https://github.com/buildertrend/product-toolkit/commit/b1f43ed41c9117bf443e3e52576488fdcd540119))
+* **frontend-setup:** Convert commands to skills ([f43dd8f](https://github.com/buildertrend/product-toolkit/commit/f43dd8facd55572c90731fedfe593a203dbb1a75))
+
+
+### Bug Fixes
+
+* Clarify which password the user needs at each step ([bfdb600](https://github.com/buildertrend/product-toolkit/commit/bfdb600d22ec9063262b806385ec787b903be0f0))
+* Strengthen the instruction to avoid combining shell commands ([861f920](https://github.com/buildertrend/product-toolkit/commit/861f92024ba32c0ba2dff7f6c47637cafeab44bc))
+
 ## [2.0.0](https://github.com/buildertrend/product-toolkit/compare/v1.1.0...v2.0.0) (2026-03-25)
 
 
