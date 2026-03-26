@@ -80,6 +80,7 @@ Help me uninstall the frontend-setup plugin.
 - **Error recovery** — if something fails, Claude tries to fix it before asking for help
 - **Figma integration** — Claude can read your Figma designs (sign in when prompted)
 - **Azure DevOps integration** — Claude can access repos, work items, and wiki
+- **Confluence integration** — Claude can access wiki pages and documentation
 
 ## What this plugin installs
 
@@ -106,7 +107,7 @@ product-toolkit/
 ├── .claude-plugin/
 │   ├── marketplace.json      # Marketplace manifest (for plugin install)
 │   └── plugin.json           # Plugin manifest (metadata, hooks)
-├── .mcp.json                 # Figma + Azure DevOps MCP configuration
+├── .mcp.json                 # Figma, Azure DevOps + Confluence MCP configuration
 ├── skills/
 │   ├── start/
 │   │   └── SKILL.md          # /frontend-setup:start — full setup flow
@@ -130,7 +131,7 @@ This is a [Claude Code](https://docs.anthropic.com/en/docs/claude-code) plugin w
 - **`/frontend-setup:start`** is the main skill. It contains a detailed step-by-step guide that Claude follows to walk the user through the full setup process.
 - **`/frontend-setup:preview`** is a lighter skill that starts the dev server for users who have already completed initial setup.
 - **`branch-management`** is a skill that activates when a user is about to edit code in BTNet. It guides them onto a feature branch using simple, non-technical language.
-- **`.mcp.json`** configures Figma and Azure DevOps MCP servers so Claude can access designs and work items.
+- **`.mcp.json`** configures Figma, Azure DevOps, and Confluence MCP servers so Claude can access designs, work items, and documentation.
 - **`scripts/approve-commands.sh`** is a PermissionRequest hook that auto-approves safe commands (file reads, git, brew, fnm, node, pnpm, etc.) so non-technical users don't get bombarded with permission prompts. Unrecognized commands are still surfaced for manual approval.
 - **`CLAUDE.md`** instructs Claude to use non-technical language and handle errors silently when possible.
 - **`mise.toml`** defines automated checks — markdown linting, plugin structure validation, and hook tests.
