@@ -8,10 +8,9 @@ Claude Code plugins for designers, PMs, and other non-engineering roles at Build
 
 A single plugin with four skills:
 
-- **Start** (`/frontend-setup:start`) — Full setup flow: installs tools, gets credentials, downloads code, and starts the app.
+- **First time setup** — Full setup flow: installs tools, gets credentials, downloads code, and starts the app.
+- **Preview** — Starts the dev server and opens the frontend in your browser.
 - **Contribute** — Guides you through making changes end-to-end: setting up a safe copy, editing files, saving your work, and submitting it for review.
-- **Preview** (`/frontend-setup:preview`) — Starts the dev server and opens the frontend in your browser.
-- **Branch management** — Guides you onto a feature branch before making code changes. Keeps the main codebase safe so your edits can be reviewed separately.
 
 ## How to use it
 
@@ -49,7 +48,7 @@ A single plugin with four skills:
     ```
 
     ```text
-    /frontend-setup:start
+    /frontend-setup:first-time-setup
     ```
 
 That last command kicks off the setup. Here's what it does:
@@ -110,8 +109,8 @@ product-toolkit/
 │   └── plugin.json           # Plugin manifest (metadata, hooks)
 ├── .mcp.json                 # Figma, Azure DevOps + Confluence MCP configuration
 ├── skills/
-│   ├── start/
-│   │   └── SKILL.md          # /frontend-setup:start — full setup flow
+│   ├── first-time-setup/
+│   │   └── SKILL.md          # /frontend-setup:first-time-setup — full setup flow
 │   ├── preview/
 │   │   └── SKILL.md          # /frontend-setup:preview — start dev server
 │   └── branch-management/
@@ -128,7 +127,7 @@ product-toolkit/
 
 This is a [Claude Code](https://docs.anthropic.com/en/docs/claude-code) plugin with **skills** and an **auto-approval hook**:
 
-- **`/frontend-setup:start`** is the main skill. It contains a detailed step-by-step guide that Claude follows to walk the user through the full setup process.
+- **`/frontend-setup:first-time-setup`** is the main skill. It contains a detailed step-by-step guide that Claude follows to walk the user through the full setup process.
 - **`/frontend-setup:preview`** is a lighter skill that starts the dev server for users who have already completed initial setup.
 - **`branch-management`** is a skill that activates when a user is about to edit code in BTNet. It guides them onto a feature branch using simple, non-technical language.
 - **`.mcp.json`** configures Figma, Azure DevOps, and Confluence MCP servers so Claude can access designs, work items, and documentation.
@@ -152,7 +151,7 @@ This is a [Claude Code](https://docs.anthropic.com/en/docs/claude-code) plugin w
     claude --plugin-dir .
     ```
 
-5. Run `/frontend-setup:start` to verify the flow works
+5. Run `/frontend-setup:first-time-setup` to verify the flow works
 6. Open a PR
 
 Use conventional commit messages with the plugin name as scope (e.g., `feat(frontend-setup): Add preview command`). Write the message in plain English describing the user-facing effect, not the code change.
@@ -173,7 +172,7 @@ claude --plugin-dir /path/to/product-toolkit
 
 Manual checklist:
 
-- [ ] `/frontend-setup:start` detects OS and checks prerequisites correctly
+- [ ] `/frontend-setup:first-time-setup` detects OS and checks prerequisites correctly
 - [ ] Missing tools are installed without errors
 - [ ] Credential generation instructions are clear
 - [ ] Dependency install completes successfully
@@ -182,7 +181,7 @@ Manual checklist:
 
 ### Editing the setup skill
 
-The setup skill (`skills/start/SKILL.md`) contains the full setup flow. Key things to preserve when editing:
+The setup skill (`skills/first-time-setup/SKILL.md`) contains the full setup flow. Key things to preserve when editing:
 
 - **Non-technical language** — users are designers and PMs, not developers
 - **Step ordering** — later steps depend on earlier ones completing successfully

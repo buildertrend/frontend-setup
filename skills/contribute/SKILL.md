@@ -90,4 +90,4 @@ Briefly explain:
 
 - **Upload fails with an auth error:** The user's credentials may have expired. Have them visit their Azure DevOps Git credentials page to generate a new password.
 - **Changes conflict with someone else's work:** This is beyond what most non-technical users can resolve. Tell them to reach out to **Michael Hanson** for help.
-- **Azure DevOps connection isn't working:** The user may need to connect it. Tell them to run `/frontend-setup:start` and skip ahead to the "Connect your tools" step.
+- **Azure DevOps connection isn't working:** The user may need to connect it. Tell them to run `/frontend-setup:first-time-setup` and skip ahead to the "Connect your tools" step.

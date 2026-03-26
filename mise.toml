@@ -78,7 +78,7 @@ for f in \
   .claude-plugin/plugin.json \
   .claude-plugin/marketplace.json \
   .mcp.json \
-  skills/start/SKILL.md \
+  skills/first-time-setup/SKILL.md \
   skills/preview/SKILL.md \
   skills/branch-management/SKILL.md \
   skills/contribute/SKILL.md \

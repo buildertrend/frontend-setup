@@ -1,5 +1,5 @@
 ---
-name: start
+name: first-time-setup
 description: Walk through setting up the Buildertrend frontend on your local machine. For designers and PMs who are new to development tools.
 ---
 
@@ -65,7 +65,12 @@ Before downloading anything, check if the project is already on this computer. L
 
 Run `ls` on each candidate path to find it. If you find a `BTNet` directory, verify it's the right project by checking that `Clients.App` exists inside it (run `ls` on the `BTNet/Clients.App` path).
 
-**If found:** Tell the user you found an existing copy. `cd` into the BTNet directory and skip ahead to Step 5 (Authenticate to the private package feed).
+**If found:** Tell the user you found an existing copy. Ask if they need to re-run any setup steps — for example, reinstalling dependencies, reconfiguring the environment, or connecting tools. If they do, `cd` into the BTNet directory and skip ahead to the relevant step. If they don't need anything, suggest:
+
+- Run `/frontend-setup:preview` to start the app and see it in your browser
+- Run `/frontend-setup:contribute` to make changes to the frontend
+
+Then stop — do not continue with the remaining steps.
 
 **If not found:** Ask the user: "I don't see the project on your computer yet. Have you downloaded it before? If so, let me know where it is. Otherwise, we'll download it now." If the user provides a path, verify it the same way (check for `Clients.App` inside it). If they say no, continue with Steps 3 and 4.
 
@@ -164,48 +169,11 @@ If the entry is missing, you cannot run this command yourself because it require
 
 After adding the entry on either OS, verify it worked by reading the hosts file again and confirming the line is present.
 
-## Step 8: Start the dev server
+## Step 8: Start the app
 
-First, change into the Clients.App directory:
+Now let's get the app running. Invoke `/frontend-setup:preview` — it will start the dev server and help the user open it in their browser.
 
-```bash
-cd Clients.App
-```
-
-**Before starting the server, check if one is already running on port 443:**
-
-- **On Mac:** Run `lsof -i :443`. If the output shows a process listening on port 443, a dev server is likely already running.
-- **On Windows:** Run `netstat -ano -p TCP` and look for `:443` in the output. If present, a server is likely already running.
-
-If a server is already running, tell the user it looks like the dev server is already going, and skip ahead to opening the browser at https://local.buildertrend.net:443/. Ask the user to confirm they can see the Buildertrend UI.
-
-**If no server is running, start one:**
-
-**On Mac**, the dev server binds to port 443 which requires elevated permissions, so it must be run with `sudo`:
-
-```bash
-sudo pnpm run start
-```
-
-Tell the user they may be prompted for their Mac login password — they should type it and press Enter (the password won't be visible as they type).
-
-**On Windows:**
-
-```bash
-pnpm run start
-```
-
-If you are unable to run the dev server (e.g., permission issues, the command hangs, or it gets blocked), walk the user through doing it manually instead:
-
-1. Open a new terminal window
-2. Navigate to the Clients.App folder inside the BTNet repo (e.g., `cd path/to/BTNet/Clients.App` — give them the actual path based on where they cloned it)
-3. On Mac: run `sudo pnpm run start` and enter their Mac login password if prompted
-4. On Windows: run `pnpm run start`
-5. Wait for the terminal to show that the server is ready
-
-Once the dev server is running (whether you started it or they did manually), tell the user to open their browser and go to https://local.buildertrend.net:443/
-
-Confirm with the user that they can see the Buildertrend UI in their browser.
+Wait for the user to confirm the app is working before continuing to Step 9.
 
 ## Step 9 (optional): Connect Figma, Azure DevOps, and Confluence
 

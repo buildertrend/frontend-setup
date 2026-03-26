@@ -3,14 +3,14 @@ name: preview
 description: Start the dev server and open the Buildertrend frontend in your browser. Use when someone asks to run the code, preview their changes, or see the frontend.
 ---
 
-You are helping a non-engineering user see the Buildertrend frontend in their browser. They have already completed the initial setup using `/frontend-setup:start` and now want to view or preview the UI.
+You are helping a non-engineering user see the Buildertrend frontend in their browser. They have already completed the initial setup using `/frontend-setup:first-time-setup` and now want to view or preview the UI.
 
 ## Your approach
 
 - Be patient and use simple, non-technical language
 - Explain what each step does in plain English before running it
 - Detect their OS automatically and adjust all commands accordingly
-- If something is missing, tell the user to run `/frontend-setup:start` to complete the initial setup first, then stop
+- If something is missing, tell the user to run `/frontend-setup:first-time-setup` to complete the initial setup first, then stop
 
 **IMPORTANT: Never combine commands with shell operators.** No `&&`, `||`, `;`, `|`, `>`, `<`, `` ` ``, `$(...)`, or `eval`. Always run each command as a separate Bash tool call.
 
@@ -25,7 +25,7 @@ Look for a `BTNet` directory. Check common locations:
 Run `ls` on each candidate path to find it. If you can't find it anywhere, tell the user:
 
 - "I can't find the project on your computer. It may not have been downloaded yet."
-- "Run `/frontend-setup:start` to set everything up from scratch."
+- "Run `/frontend-setup:first-time-setup` to set everything up from scratch."
 
 Then stop — do not continue with the remaining steps.
 
@@ -35,8 +35,8 @@ Once found, `cd` into the BTNet directory.
 
 Run these checks silently (no need to explain each one to the user unless something is wrong):
 
-1. `node --version` — must be >=22.12.0 <23. If wrong, run `fnm use 22`. If fnm is missing, tell the user to run `/frontend-setup:start`.
-2. `pnpm --version` — must be >=10.0.0. If missing, tell the user to run `/frontend-setup:start`.
+1. `node --version` — must be >=22.12.0 <23. If wrong, run `fnm use 22`. If fnm is missing, tell the user to run `/frontend-setup:first-time-setup`.
+2. `pnpm --version` — must be >=10.0.0. If missing, tell the user to run `/frontend-setup:first-time-setup`.
 3. Check that the file `Clients.App/.env.development.local` exists. If missing, create it with this content:
 
 ```

@@ -24,7 +24,7 @@ Look for a `BTNet` directory. Check common locations:
 
 Run `ls` on each candidate path to find it. Verify it's the right project by checking that `Clients.App` exists inside it.
 
-If you can't find it, ask the user where it is. If they don't have it, tell them to run `/frontend-setup:start` first, then stop.
+If you can't find it, ask the user where it is. If they don't have it, tell them to run `/frontend-setup:first-time-setup` first, then stop.
 
 Once found, `cd` into the BTNet directory.
 
