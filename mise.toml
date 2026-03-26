@@ -1,6 +1,10 @@
 [tools]
 node = "lts"
 
+[tasks.test]
+description = "Run all CI checks"
+run = [{ task = "lint" }, { task = "validate" }, { task = "test:hooks" }]
+
 [tasks.lint]
 run = "npx markdownlint-cli2 '**/*.md' '#node_modules' '#CHANGELOG.md'"
 description = "Lint Markdown files"
@@ -264,7 +268,3 @@ expect_approve "env var prefix + bash script" \
 
 exit $errors
 """
-
-[tasks.test]
-description = "Run all CI checks"
-depends = ["lint", "validate", "test:hooks"]
