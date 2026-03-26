@@ -207,11 +207,11 @@ Once the dev server is running (whether you started it or they did manually), te
 
 Confirm with the user that they can see the Buildertrend UI in their browser.
 
-## Step 9 (optional): Connect Figma and Azure DevOps
+## Step 9 (optional): Connect Figma, Azure DevOps, and Confluence
 
-This step is optional — the frontend is already running. But connecting these tools lets Claude help the user work with designs in Figma and work items in Azure DevOps directly from the chat.
+This step is optional — the frontend is already running. But connecting these tools lets Claude help the user work with designs in Figma, work items in Azure DevOps, and documentation in Confluence directly from the chat.
 
-Tell the user you're going to connect two tools they may use in their day-to-day work: **Figma** (for viewing designs) and **Azure DevOps** (for viewing work items and code). Explain that each one may open a browser window asking them to sign in.
+Tell the user you're going to connect three tools they may use in their day-to-day work: **Figma** (for viewing designs), **Azure DevOps** (for viewing work items and code), and **Confluence** (for viewing wiki pages and documentation). Explain that each one may open a browser window asking them to sign in.
 
 **Connect Azure DevOps:**
 
@@ -229,7 +229,15 @@ Tell the user you're going to connect two tools they may use in their day-to-day
 4. If it succeeds, let the user know Figma is connected.
 5. If it fails, tell them it's not required and they can try again later, or reach out to **Michael Hanson** for help.
 
-If either tool connects without prompting for sign-in, that means the user is already authenticated — just let them know it's ready to use.
+**Connect Confluence:**
+
+1. Tell the user you're going to try connecting to Confluence, and that a browser window may open for sign-in.
+2. Attempt a simple read-only call to the Confluence MCP server (e.g., search for a page or list spaces).
+3. If the user is prompted to sign in, tell them to use their **Buildertrend Microsoft/Azure account** (the same one they use for other Buildertrend tools).
+4. If it succeeds, let the user know Confluence is connected.
+5. If it fails, tell them it's not required and they can try again later, or reach out to **Michael Hanson** for help.
+
+If any tool connects without prompting for sign-in, that means the user is already authenticated — just let them know it's ready to use.
 
 ## Troubleshooting
 

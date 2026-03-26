@@ -10,6 +10,10 @@
       "headers": {
         "X-MCP-Toolsets": "repos,wit,wiki"
       }
+    },
+    "confluence": {
+      "type": "http",
+      "url": "https://mcp.atlassian.com/v1/mcp"
     }
   }
 }
