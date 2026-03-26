@@ -1,5 +1,18 @@
 # Changelog
 
+## [4.0.0](https://github.com/buildertrend/product-toolkit/compare/v3.0.0...v4.0.0) (2026-03-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* **frontend-setup:** Rename start skill to first-time-setup and delegate to preview for launching the app
+
+### Features
+
+* Add contribute skill to guide users through making and submitting changes ([8948c7e](https://github.com/buildertrend/product-toolkit/commit/8948c7ea05a592365206f4a2a4d2aed81f690e37))
+* **frontend-setup:** Add save skill for saving changes with ticket-prefixed messages ([3e5bb44](https://github.com/buildertrend/product-toolkit/commit/3e5bb440c7335853f9527e5bf14b266ee297c174))
+* **frontend-setup:** Rename start skill to first-time-setup and delegate to preview for launching the app ([bbb0ad1](https://github.com/buildertrend/product-toolkit/commit/bbb0ad1e9a9d94b5ed3354b3177cc8f45d3cd1fc))
+
 ## [3.0.0](https://github.com/buildertrend/product-toolkit/compare/v2.0.0...v3.0.0) (2026-03-26)
 
 
