@@ -113,6 +113,8 @@ product-toolkit/
 │   │   └── SKILL.md          # /frontend-setup:first-time-setup — full setup flow
 │   ├── preview/
 │   │   └── SKILL.md          # /frontend-setup:preview — start dev server
+│   ├── contribute/
+│   │   └── SKILL.md          # /frontend-setup:contribute — make and submit changes
 │   └── branch-management/
 │       └── SKILL.md          # Guides users onto a feature branch
 ├── scripts/
@@ -129,10 +131,10 @@ This is a [Claude Code](https://docs.anthropic.com/en/docs/claude-code) plugin w
 
 - **`/frontend-setup:first-time-setup`** is the main skill. It contains a detailed step-by-step guide that Claude follows to walk the user through the full setup process.
 - **`/frontend-setup:preview`** is a lighter skill that starts the dev server for users who have already completed initial setup.
+- **`/frontend-setup:contribute`** guides users through making changes end-to-end: setting up a safe copy, editing files, saving work, and submitting it for review. Delegates to `branch-management` and `preview` as needed.
 - **`branch-management`** is a skill that activates when a user is about to edit code in BTNet. It guides them onto a feature branch using simple, non-technical language.
 - **`.mcp.json`** configures Figma, Azure DevOps, and Confluence MCP servers so Claude can access designs, work items, and documentation.
 - **`scripts/approve-commands.sh`** is a PermissionRequest hook that auto-approves safe commands (file reads, git, brew, fnm, node, pnpm, etc.) so non-technical users don't get bombarded with permission prompts. Unrecognized commands are still surfaced for manual approval.
-- **`CLAUDE.md`** instructs Claude to use non-technical language and handle errors silently when possible.
 - **`mise.toml`** defines automated checks — markdown linting, plugin structure validation, and hook tests.
 
 ### Making changes
@@ -178,10 +180,12 @@ Manual checklist:
 - [ ] Dependency install completes successfully
 - [ ] Environment file is created with correct values
 - [ ] Dev server starts and the app loads in the browser
+- [ ] `/frontend-setup:preview` starts the server and opens the app
+- [ ] `/frontend-setup:contribute` walks through making a change and submitting it
 
-### Editing the setup skill
+### Editing skills
 
-The setup skill (`skills/first-time-setup/SKILL.md`) contains the full setup flow. Key things to preserve when editing:
+Each skill lives in `skills/<name>/SKILL.md`. Key things to preserve when editing any skill:
 
 - **Non-technical language** — users are designers and PMs, not developers
 - **Step ordering** — later steps depend on earlier ones completing successfully
