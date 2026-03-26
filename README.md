@@ -9,7 +9,7 @@ Claude Code plugins for designers, PMs, and other non-engineering roles at Build
 A single plugin with several skills, such as:
 
 - **First time setup** — Full setup flow: installs tools, gets credentials, downloads code, and starts the app.
-- **Preview** — Starts the dev server and opens the frontend in your browser.
+- **Preview** — Starts the app and opens it in your browser.
 - **Contribute** — Guides you through making changes end-to-end: setting up a safe copy, editing files, saving your work, and submitting it for review.
 
 ## How to use it
@@ -56,13 +56,13 @@ That last command kicks off the setup. Here's what it does:
 1. **Checks your computer** — detects your OS and installs any missing tools automatically
 2. **Helps you get credentials** — walks you through generating credentials to download our code from Azure DevOps
 3. **Downloads the code**
-4. **Installs dependencies** — authenticates with the private package feed and installs dependencies our code needs
-5. **Configures the environment** — sets up the connection to the shared test environment
-6. **Starts the app** — launches the dev server and opens it in your browser
+4. **Installs dependencies** — downloads the libraries our code needs
+5. **Configures the environment** — connects to our shared servers
+6. **Starts the app** — opens your local Buildertrend in your browser
 
-When it's done, you'll have the Buildertrend frontend running at `https://local.buildertrend.net:443/`.
+When it's done, you'll have your own Buildertrend running at `https://local.buildertrend.net:443/`.
 
-Next time you want to start the app, just run `/frontend-setup:preview` or ask Claude something like, "Start the app so I can see it in my browser."
+Next time you want to start the app, just run `/frontend-setup:preview` or ask Claude to start the app.
 
 ### Uninstall
 
@@ -89,10 +89,10 @@ The setup process installs standard development tools as needed:
 - **Xcode Command Line Tools** (Mac only)
 - **Homebrew** (Mac only)
 - **fnm** (Fast Node Manager) — manages Node.js versions
-- **Node.js 22.x** — the JavaScript runtime
-- **pnpm** — the package manager used by the project
+- **Node.js 22.x** — powers the app
+- **pnpm** — installs and manages the libraries the app needs
 
-The plugin only modifies files within the BTNet repository directory. Nothing is installed globally beyond the tools listed above.
+The plugin only modifies files within the BTNet repository directory and only installs the tools listed above.
 
 ## Need help?
 
@@ -179,7 +179,7 @@ Manual checklist:
 - [ ] Credential generation instructions are clear
 - [ ] Dependency install completes successfully
 - [ ] Environment file is created with correct values
-- [ ] Dev server starts and the app loads in the browser
+- [ ] App starts and loads in the browser
 - [ ] `/frontend-setup:preview` starts the server and opens the app
 - [ ] `/frontend-setup:contribute` walks through making a change and submitting it
 
